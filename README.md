@@ -1,8 +1,6 @@
-# curriculum-databases-projects-template
+# VET CLINIC
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
-
+> This project is a database of a Vet clinic. It contains tables and queries in the the database
 
 ## Getting Started
 
@@ -10,28 +8,21 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 - Use [schema.sql](./schema.sql) to create all tables.
 - Use [data.sql](./data.sql) to populate tables with sample data.
-- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
-
+- Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database.
 
 ## Authors
 
-👤 **Author1**
+👤 **David Amon-Cofie**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@amon-cofie](https://github.com/amon-cofie)
+- Twitter: [@amon_cofie](https://twitter.com/amon_cofie)
+- LinkedIn: [David Amon-Cofie](https://www.linkedin.com/in/damon-cofie/)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/amon-cofie/vet-clinic/issues).
 
 ## Show your support
 
