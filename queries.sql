@@ -135,8 +135,77 @@ GROUP BY number_table.owner
 ORDER BY MAX(number_table.number_animals) DESC
 LIMIT 1;
 
+SELECT name, date_of_visit FROM visits 
+JOIN animals ON animals_id = animals.id
+WHERE vets_id = 1 
+ORDER BY date_of_visit DESC 
+LIMIT 1;
 
+SELECT COUNT(*) FROM visits
+WHERE vets_id = 3;
 
+SELECT vets.name as VET, species.name as SPECIALTY FROM vets
+LEFT JOIN specializations S
+ON vets_id = vets.id
+LEFT JOIN species
+ON S.species_id = species.id;
+
+SELECT animals.name, visits.date_of_visit FROM visits
+JOIN animals 
+ON animals.id = animals_id
+WHERE vets_id = 3 AND date_of_visit BETWEEN '2020-04-01' AND '2020-08-30';
+
+ SELECT A.name AS animal_name, COUNT(V.animals_id) AS number_of_visits 
+ FROM VISITS V 
+ JOIN animals A 
+ ON A.id = V.animals_id 
+ GROUP BY V.animals_id, A.name 
+ ORDER BY number_of_visits DESC 
+ LIMIT 1;
+
+SELECT A.name AS animal_name, V.date_of_visit 
+FROM animals A 
+JOIN visits V 
+ON A.id = V.animals_id 
+WHERE vets_id = 2 
+ORDER BY date_of_visit
+LIMIT 1;
+
+SELECT A.name as animal_name, A.date_of_birth, A.neutered, A.weight_kg, V.date_of_visit, vets.name AS vet_name, SP.name AS specialization
+FROM animals A 
+JOIN visits V 
+ON A.id = V.animals_id 
+JOIN vets 
+ON V.vets_id = vets.id 
+JOIN specializations S 
+ON S.vets_id = V.vets_id
+JOIN species SP 
+ON SP.id = S.species_id
+ORDER BY date_of_visit DESC 
+LIMIT 1;
+
+SELECT vets.name AS vet_name, vets.id as vets_id, COUNT(vets.name) AS Number_of_visits, SP.name AS specialization 
+FROM animals A                
+LEFT JOIN visits V 
+ON A.id = V.animals_id 
+LEFT JOIN vets 
+ON V.vets_id = vets.id 
+LEFT JOIN specializations S ON S.vets_id = V.vets_id
+LEFT JOIN species SP 
+ON SP.id = S.species_id
+WHERE SP.name IS NULL
+GROUP BY vets.name, SP.name, vets.id;
+
+SELECT A.species_id AS specialties_id, S.name AS specialties, COUNT(A.species_id) AS species_count 
+FROM visits V  
+JOIN animals A 
+ON V.animals_id = A.id
+JOIN species S 
+ON A.species_id = S.id
+WHERE V.vets_id = 2  
+GROUP BY species_id, S.name 
+ORDER BY species_count DESC 
+LIMIT 1;
 
 
 
