@@ -89,6 +89,51 @@ SELECT species, AVG(escape_attempts)
 FROM animals
 GROUP BY species;
 
+SELECT full_name, name FROM owners
+JOIN animals 
+ON owners.id = animals.owner_id
+WHERE full_name = 'Melody Pond';
+
+SELECT animals.name, species.name
+FROM animals
+JOIN species
+ON animals.species_id = species.id
+WHERE species_id = 1;
+
+SELECT full_name, animals.name FROM owners
+FULL JOIN animals
+ON animals.owner_id = owners.id; 
+
+SELECT species.name, COUNT(animals.name)
+FROM species
+JOIN animals
+ON animals.species_id = species.id
+GROUP BY species.name;
+
+SELECT animals.name, owners.full_name as owner, species.name as species
+FROM animals
+JOIN owners
+ON animals.owner_id = owners.id
+JOIN species
+ON animals.species_id = species.id
+WHERE species.name = 'Digimon' AND owners.full_name = 'Jennifer Orwell';
+
+SELECT animals.name as animal, owners.full_name as owner
+FROM animals
+JOIN owners
+ON animals.owner_id = owners.id
+WHERE escape_attempts = 0 AND owners.full_name = 'Dean Winchester';
+
+SELECT number_table.owner, MAX(number_table.number_animals) as number_of_animals
+FROM (
+    SELECT owners.full_name as owner, COUNT(owner_id) as number_animals FROM animals
+    JOIN owners
+    ON animals.owner_id = owners.id
+    GROUP BY owners.full_name
+) as number_table
+GROUP BY number_table.owner
+ORDER BY MAX(number_table.number_animals) DESC
+LIMIT 1;
 
 
 
